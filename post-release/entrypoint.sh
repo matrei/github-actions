@@ -43,6 +43,7 @@ git checkout $target_branch
 
 echo "Setting new snapshot version"
 sed -i "s/^version.*$/version\=${next_version}$SNAPSHOT_SUFFIX/" gradle.properties
+sed -i "s/^projectVersion.*$/projectVersion\=${next_version}$SNAPSHOT_SUFFIX/" gradle.properties
 cat gradle.properties
 
 echo "Committing and pushing"
@@ -57,4 +58,5 @@ rm -f .git/COMMIT_EDITMSG
 # TODO: Not sure why this is necessary
 echo "Setting release version back so that Maven Central sync can work"
 sed -i "s/^version.*$/version\=${release_version}/" gradle.properties
+sed -i "s/^projectVersion.*$/projectVersion\=${release_version}/" gradle.properties
 cat gradle.properties

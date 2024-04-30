@@ -26,6 +26,7 @@ git checkout $target_branch
 
 echo "Setting release version in gradle.properties"
 sed -i "s/^version.*$/version\=${release_version}/" gradle.properties
+sed -i "s/^projectVersion.*$/projectVersion\=${release_version}/" gradle.properties
 cat gradle.properties
 
 echo "Pushing release version and recreating v${release_version} tag"

@@ -7,5 +7,5 @@ RUN apk add --no-cache curl jq git bash
 COPY *.sh /
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-RUN chmod +x entrypoint.sh
+RUN chmod +x entrypoint.sh increment_version.sh
 ENTRYPOINT ["/entrypoint.sh"]
